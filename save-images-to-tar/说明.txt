@@ -1,0 +1,7 @@
+1、将image.txt中的所有镜像列表打包到“all-images.tar.gz”
+./save-images.sh --image-list ./images.txt
+完成时，当前目录会输出名为all-images.tar.gz的压缩包
+
+2、将all-images.tar.gz 中的镜像上传到私有镜像库
+docker login <私有库>
+./load-images-registry.sh --image-list ./images.txt --registry <私有库>
