@@ -39,19 +39,22 @@ Usage:
 help ()
 {
     echo  ' ================================================================ '
-    echo  ' save charts listed in rancher Apps from helm-repo to dir charts-out-put '
-    echo  ' --rancher-server: must，rancher server address'
-    echo  ' --rancher-api-key: must。rancher apikey for Bearer Token'
-    echo  ' --rancher-project-id：must。rancher project's id from browser address'
-    echo  ' --harbor-server: must。harbor server address'
-    echo  ' 使用示例:'
-    echo  ' ./getcharts.sh --rancher-server=dbu.rancher.com --rancher-api-key=token-9zqtt:lj2j78jqjcqmgdx8n4kftn5j79rmq99j7hn548q8jc54shw9t8v2bm --rancher-project-id=c-bsv8l:p-rcv69  --harbor-server=harbor.sobey.com'
+    echo  ' 在当前目录的 charts-out-put 目录中，创建rancher中特定的charts最新版本 '
+    echo  ' --rancher-server: 必选，rancher的访问地址'
+    echo  ' --rancher-api-key: 必须。从rancher的api&key中获取的apikey'
+    echo  ' --rancher-project-id：必须。在rancher上点击一个项目，从地址栏中取得的项目id'
+    echo  ' --harbor-server: 必须。harbor的地址'
+    echo  ' --save-image：可选，默认false，设置chats里面对应的docker镜像输出目录。如果设定，则会把images导出到charts-out-put/images '
+    echo  ' 使用示例，导出project-id=c-bsv8l:p-rcv69的所有charts，并且把镜像输出到images目录'
+    echo  ' ./getcharts.sh --rancher-server=dbu.rancher.com --rancher-api-key=token-9zqtt:lj2j78jqjcqmgdx8n4kftn5j79rmq99j7hn548q8jc54shw9t8v2bm \'
+    echo  ' --rancher-project-id=c-bsv8l:p-rcv69  --harbor-server=harbor.sobey.com --save-image=true'
     echo  ' ================================================================'
 }
 
+
 ```
 
-after this, all charts will downloaded to dir ./charts-out-put 
+after this, all charts will downloaded to dir ./charts-out-put , if option --save-image=true, will save docker images belong to the charts to dir ./charts-out-put/images  
 
 3- pod-yamls
 
